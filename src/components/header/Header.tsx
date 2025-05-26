@@ -25,7 +25,7 @@ const Header = () => {
             </Link>
  
             <div className='relative'> 
-                <button className='text-white cursor-pointer'><SiShopify  size={40} /></button>
+                <Link href="/card" className='text-white cursor-pointer'><SiShopify  size={40} /></Link>
                 <span className='text-xs font-normal bg-white text-black p-0.5 rounded-full absolute -top-2 -right-1'>02</span>
             </div>
 
