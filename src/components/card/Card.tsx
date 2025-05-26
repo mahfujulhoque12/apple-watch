@@ -20,10 +20,10 @@ const Card: React.FC = () => {
 
   // Calculate subtotal
   const subtotal = visibleCards.reduce((sum, card) => {
-    const qty = quantities[card.id] || 0;
-    const base = card.basePrice || 0;
+    const qty = quantities[card.id] || 1;
+    const base = card.basePrice || 1;
     return sum + base * qty;
-  }, 0);
+  }, 1);
 
   const taxRate = 0.1;
   const tax = subtotal * taxRate;
@@ -47,8 +47,8 @@ const Card: React.FC = () => {
         <h3 className="text-center text-2xl font-bold text-gray-200 mt-3">Product List</h3>
 
         {visibleCards.map((card) => {
-          const qty = quantities[card.id] || 0;
-          const price = (card.basePrice || 0) * qty;
+          const qty = quantities[card.id] || 1;
+          const price = (card.basePrice || 1) * qty;
 
           return (
             <div
@@ -77,6 +77,19 @@ const Card: React.FC = () => {
               {/* Info */}
               <div className="flex flex-col flex-1">
                 <h2 className="text-lg font-semibold text-gray-300">{card.name}</h2>
+                     <h2 className="text-sm font-medium text-gray-300">
+                  <span className="font-normal">Size: </span> {card.size}
+                </h2>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-sm font-normal text-gray-300">
+                    Color:
+                  </span>
+                  <span
+                    className="w-4 h-4 rounded-full border border-gray-300"
+                    style={{ backgroundColor: card.color }}
+                    title={card.color}
+                  />
+                </div>
                 <div className="flex items-center gap-3 mt-2">
                   <button
                     onClick={() => handleQuantity(card.id, 'dec')}
