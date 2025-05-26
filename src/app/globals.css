@@ -7,3 +7,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --btn-bg: #183B4E;
+  --badge-bg: #Fff;
+  --gradient-from: #fff;
+  --gradient-to: #fff;
+}
